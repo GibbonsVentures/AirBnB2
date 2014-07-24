@@ -1,0 +1,46 @@
+<%= render 'pages/home' unless user_signed_in? %>
+<center><p>
+  
+  <h4>Search by Zip Code</h4>
+  <%= form_tag(places_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by State" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+</p>
+</br> 
+<p>
+<%= link_to new_place_path do %> <span class="glyphicon glyphicon-plus"></span> Add a place <% end %>
+
+</p>
+</center>
+
+<div id="places" class="transitions-enabled">
+  <% @places.each do |place| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(place.image.url(:medium)), place %>
+      <div class="panel-body"> Zip Code
+        <p><strong><%= place.zip %></strong></p>
+        <%= place.votes.count %> People know this person. 
+        <%= button_to "I know this person", [:upvote, place], method: :post %>
+         
+        
+        <% if current_user && place.user == current_user %>
+          <div class="actions">
+                 <%= link_to edit_place_path(place) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to place, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+            
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
