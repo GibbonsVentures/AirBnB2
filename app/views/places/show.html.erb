@@ -4,16 +4,16 @@
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading center">
-        <%= image_tag @place.image.url(:medium) %>
+        
     </div>
     
       <div class="panel-body">
-    <p><strong><p><%= @place.type %></p></strong></p>
+    <p><strong><p><%= @place.kind %></p></strong></p>
     <p><strong><p><%= @place.description %></p></strong></p>
-    <p><strong><p><%= @place.type %></p></strong></p>
-    <p><strong><p><%= @place.type %></p></strong></p>
-    <p><strong><p><%= @place.type %></p></strong></p>
-    @place up
+    <p><strong><p><%= @place.kind %></p></strong></p>
+    <p><strong><p><%= @place.kind %></p></strong></p>
+    <p><strong><p><%= @place.kind %></p></strong></p>
+    
 
     <% if @place.user == current_user %>
       <%= link_to edit_place_path(@place) do %>

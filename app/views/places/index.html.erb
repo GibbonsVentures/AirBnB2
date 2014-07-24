@@ -1,7 +1,7 @@
 <%= render 'pages/home' unless user_signed_in? %>
 <center><p>
   
-  <h4>Search by Zip Code</h4>
+  <h4>Search by State</h4>
   <%= form_tag(places_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search by State" %>
   <%= submit_tag "Search", :name => nil %>
@@ -10,7 +10,7 @@
 </p>
 </br> 
 <p>
-<%= link_to new_place_path do %> <span class="glyphicon glyphicon-plus"></span> Add a place <% end %>
+<%= link_to new_place_path do %> <span class="glyphicon glyphicon-plus"></span> Add a Place <% end %>
 
 </p>
 </center>
@@ -18,11 +18,14 @@
 <div id="places" class="transitions-enabled">
   <% @places.each do |place| %>
     <div class="box panel panel-default">
-      <%= link_to image_tag(place.image.url(:medium)), place %>
-      <div class="panel-body"> Zip Code
-        <p><strong><%= place.zip %></strong></p>
-        <%= place.votes.count %> People know this person. 
-        <%= button_to "I know this person", [:upvote, place], method: :post %>
+      <div class="panel-body">
+        <p><strong><%= place.kind %></strong></p>
+        <p><strong><%= place.address %></strong></p>
+        <p><strong><%= place.description %></strong></p>
+        <p><strong><%= place.state %></strong></p>
+        <p><strong><%= place.price %></strong></p>
+         
+        
          
         
         <% if current_user && place.user == current_user %>
