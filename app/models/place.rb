@@ -3,7 +3,9 @@ class Place < ActiveRecord::Base
 
 	validates_presence_of :kind, :address, :state, :description, :price, :availability
 
-
+	def self.search(query)
+  		where("state like ?", "%#{query}%") 
+	end
 	private
 
 		def set_status

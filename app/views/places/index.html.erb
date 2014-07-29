@@ -19,11 +19,13 @@
   <% @places.each do |place| %>
     <div class="box panel panel-default">
       <div class="panel-body">
-        <p><strong><%= place.kind %></strong></p>
-        <p><strong><%= place.address %></strong></p>
-        <p><strong><%= place.description %></strong></p>
-        <p><strong><%= place.state %></strong></p>
-        <p><strong><%= place.price %></strong></p>
+        <p>Type:<strong><%= place.kind %></strong></p>
+        <p>Location:<strong><%= place.address %></strong></p>
+        <p>State:<strong><%= place.state %></strong></p>
+        <p>Price:<strong><%= place.price %></strong></p>
+        <p>Availability:<strong><%= place.availability %></strong></p>
+        <p>Details:<strong><%= place.description %></strong></p>
+        
          
         
          
@@ -47,3 +49,6 @@
 </div>
 
 
+<div class="center">
+   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>

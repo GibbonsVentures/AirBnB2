@@ -6,9 +6,9 @@ class PlacesController < ApplicationController
 
   def index
     if params[:search]
-      @places = Place.search(params[:search])
+      @places = Place.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     else
-      @places = Place.all.order("created_at DESC")
+      @places = Place.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     end
   end
   

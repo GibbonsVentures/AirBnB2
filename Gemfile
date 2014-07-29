@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
-
+gem 'will_paginate-bootstrap'
+gem 'will_paginate', '~> 3.0.7'
 gem 'devise', '~> 3.2.4'
 gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'rails', '4.1.0'
