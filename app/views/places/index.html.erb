@@ -18,6 +18,7 @@
 <div id="places" class="transitions-enabled">
   <% @places.each do |place| %>
     <div class="box panel panel-default">
+      <%= link_to image_tag(place.image.url(:medium)), place %>
       <div class="panel-body">
         <p>Type:<strong><%= place.kind %></strong></p>
         <p>Location:<strong><%= place.address %></strong></p>

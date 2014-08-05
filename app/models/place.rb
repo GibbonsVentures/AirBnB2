@@ -4,6 +4,8 @@ class Place < ActiveRecord::Base
 	has_many :images
 
 	has_attached_file :image, :styles => { :medium => "300x300>"}
+	validates :image, presence: true
+	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
 
 	validates_presence_of :kind, :address, :state, :description, :price, :availability
 
