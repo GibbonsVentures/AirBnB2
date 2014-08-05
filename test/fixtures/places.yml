@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
+  user_id: 1
   address: MyString
-  state: MyString
   price: 1
   description: MyText
   availability: MyString
+  kind: MyString
 
 two:
-  type: 
+  user_id: 1
   address: MyString
-  state: MyString
   price: 1
   description: MyText
   availability: MyString
+  kind: MyString

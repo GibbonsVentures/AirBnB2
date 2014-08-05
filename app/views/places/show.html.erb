@@ -9,10 +9,11 @@
     
       <div class="panel-body">
     <p><strong><p><%= @place.kind %></p></strong></p>
+    <p><strong><p><%= @place.address %></p></strong></p>
+    <p><strong><p><%= @place.state %></p></strong></p>
     <p><strong><p><%= @place.description %></p></strong></p>
-    <p><strong><p><%= @place.kind %></p></strong></p>
-    <p><strong><p><%= @place.kind %></p></strong></p>
-    <p><strong><p><%= @place.kind %></p></strong></p>
+    <p><strong><p><%= @place.price %></p></strong></p>
+    <p><strong><p><%= @place.availability %></p></strong></p>
     
 
     <% if @place.user == current_user %>

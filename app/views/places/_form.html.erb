@@ -13,27 +13,27 @@
 
   <div class="form-group" >
     <p><strong> <%= f.label :kind %> </strong></p>
-    <%= f.text_field :kind,  class: "form-control" %>
+    <%= f.text_field :kind,  class: "form-control", placeholder: "House, Apartment, or Condo?" %></br>
   
     <p><strong> <%= f.label :address %> </strong></p>
-    <%= f.text_field :address,  class: "form-control" %>
+    <%= f.text_field :address,  class: "form-control", placeholder: "What street do you live on?" %></br>
   
     <p><strong> <%= f.label :state %> </strong></p>
-    <%= f.text_field :state,  class: "form-control" %>
+    <%= f.text_field :state,  class: "form-control", placeholder: "State?" %></br>
   
     <p><strong> <%= f.label :description %> </strong></p>
-    <%= f.text_field :description,  class: "form-control" %>
+    <%= f.text_area :description,  class: "form-group", placeholder: "Give some details about your place" %></br>
 
     <p><strong> <%= f.label :availability %> </strong></p>
-    <%= f.text_field :availability,  class: "form-control" %>
+    <%= f.text_field :availability,  class: "form-group", placeholder: "When do you want to rent it out?" %></br>
  
-    <p><strong> <%= f.label :price %> </strong></p>
-    <%= f.text_field :price,  class: "form-control" %>
-  </div>
+    <p> <%= f.label :price %> </p>
+    <%= f.text_field :price,  class: "input-small", placeholder: "What is the nightly rent?" %>
+  </div></br>
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
-<% end %>
-
-
  
+
+
+<% end %>

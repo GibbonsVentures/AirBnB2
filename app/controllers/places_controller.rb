@@ -28,7 +28,7 @@ class PlacesController < ApplicationController
   def create
     @place = current_user.places.build(place_params)
     if @place.save
-      redirect_to @place, notice: 'place was successfully created.'
+      redirect_to @place, notice: 'Your place can now be rented!'
     else
       render action: 'new'
     end
@@ -36,7 +36,7 @@ class PlacesController < ApplicationController
 
   def update
     if  @place.update(place_params)
-      redirect_to @place, notice: 'place was successfully updated.'
+      redirect_to @place, notice: 'Place was successfully updated.'
     else
       render action: 'edit'
     end

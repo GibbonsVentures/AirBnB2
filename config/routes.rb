@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
 	resources :reservations
 	resources :places	
-  devise_for :users
+
   root "places#index"
 
   get "faq" => "pages#faq"

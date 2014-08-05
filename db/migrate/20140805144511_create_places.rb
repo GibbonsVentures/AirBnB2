@@ -1,12 +1,12 @@
 class CreatePlaces < ActiveRecord::Migration
   def change
     create_table :places do |t|
-      t.string :type
+      t.integer :user_id
       t.string :address
-      t.string :state
       t.integer :price
       t.text :description
       t.string :availability
+      t.string :kind
 
       t.timestamps
     end
