@@ -34,10 +34,18 @@
     <p> <%= f.label :price %> </p>
     <%= f.text_field :price,  class: "input-small", placeholder: "What is the nightly rent?" %>
   </div></br>
-  <div class="form-group">
+  
+
+ <div class="pictures">
+    <%= f.fields_for :pictures do |f| %>
+        <%= f.file_field :image %>
+      <% end %>
+
+    
+ </div>
+</br>
+ <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
- 
-
-
+      
 <% end %>

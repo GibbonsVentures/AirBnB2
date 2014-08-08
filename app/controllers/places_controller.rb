@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
 
   def new
     @place = current_user.places.build
+    5.times { @place.pictures.build }
   end
 
   def edit
