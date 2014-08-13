@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+
+gem 'jquery-fileupload-rails'
 gem 'paperclip', '~> 4.2.0'
 gem 'will_paginate-bootstrap'
 gem 'will_paginate', '~> 3.0.7'

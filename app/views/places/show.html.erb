@@ -1,5 +1,12 @@
 <%= link_to 'Back', places_path %>
 
+  <div class="fadein">
+    <% form_for @pictures do |picture| %>
+      <%= image_tag picture.image.url %>
+    <% end %>
+  </div>
+
+
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
@@ -27,8 +34,8 @@
      </div>
   
   <% end %> 
-
+<%= render 'reservations/form' %>
     </div>
   </div>
 
-</div>	
+</div>  

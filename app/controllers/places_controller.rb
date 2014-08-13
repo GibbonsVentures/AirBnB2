@@ -16,6 +16,7 @@ class PlacesController < ApplicationController
   
   def show
     @place = Place.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
@@ -24,6 +25,7 @@ class PlacesController < ApplicationController
   end
 
   def edit
+    @place = Place.find(params[:id])
   end
 
   def create
@@ -44,6 +46,7 @@ class PlacesController < ApplicationController
   end
 
   def destroy
+    @place = Place.find(params[:id])
     @place.destroy
     redirect_to places_url
   end
@@ -60,6 +63,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability)
+      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability, :image)
     end
 end

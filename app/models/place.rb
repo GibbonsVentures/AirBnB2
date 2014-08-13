@@ -3,6 +3,8 @@ class Place < ActiveRecord::Base
 	has_many :reservations
 
 	has_many :pictures, :dependent => :destroy
+	accepts_nested_attributes_for :pictures, :allow_destroy => true    
+
 	
 	
 
@@ -11,9 +13,5 @@ class Place < ActiveRecord::Base
 	def self.search(query)
   		where("state like ?", "%#{query}%") 
 	end
-	private
-
-		def set_status
-			self.status = kind
-		end
+	
 end

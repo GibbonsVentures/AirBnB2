@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-	resources :reservations
-	resources :places	
+	
+	resources :places do
+		resources :pictures
+	end
+
+	resources :reservations, only: [:create]
+		
+	
+
+  
+
 
   root "places#index"
-
   get "faq" => "pages#faq"
   get "home" => "pages#home"
 
