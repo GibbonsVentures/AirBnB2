@@ -1,11 +1,6 @@
 <%= link_to 'Back', places_path %>
 
-  <div class="fadein">
-    <% form_for @pictures do |picture| %>
-      <%= image_tag picture.image.url %>
-    <% end %>
-  </div>
-
+  
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
@@ -15,12 +10,13 @@
     </div>
     
       <div class="panel-body">
-    <p><strong><p><%= @place.kind %></p></strong></p>
-    <p><strong><p><%= @place.address %></p></strong></p>
-    <p><strong><p><%= @place.state %></p></strong></p>
-    <p><strong><p><%= @place.description %></p></strong></p>
-    <p><strong><p><%= @place.price %></p></strong></p>
-    <p><strong><p><%= @place.availability %></p></strong></p>
+    <p>Type:<strong><%= @place.kind %> </strong></p>
+    <p>Address:<strong><%= @place.address %> </strong></p>
+    <p>State:<strong><%= @place.state %> </strong></p>
+    <p>Description:<strong><%= @place.description %> </strong></p>
+    <p>Price/Night:<strong> <%= @place.price %> </strong></p>
+    <p>Availability:<strong> <%= @place.availability %> </strong></p>
+
     
 
     <% if @place.user == current_user %>
