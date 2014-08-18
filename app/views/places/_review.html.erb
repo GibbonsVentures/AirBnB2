@@ -1,0 +1,6 @@
+<%= form_for @review, :url=> reviews_path, method: :post, remote: true do |f| %>
+  <%= f.hidden_field :place_id, :value => @place.id %>
+  <div class="form-group" >
+    <p><strong> <%= f.label :review %> </strong></p>
+    <%= f.text_field :review,  class: "form-control", placeholder: "House, Apartment, or Condo?" %></br>
+<% end %>

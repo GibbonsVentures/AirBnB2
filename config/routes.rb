@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	end
 
 	resources :reservations, only: [:create]
+	resources :reviews, only: [:create]
 		
 	
 
