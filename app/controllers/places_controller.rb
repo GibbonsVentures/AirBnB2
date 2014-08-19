@@ -1,5 +1,4 @@
 class PlacesController < ApplicationController
- 
   before_action :authenticate_user!, except: [:index]
 
 
@@ -9,8 +8,9 @@ class PlacesController < ApplicationController
       @places = Place.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     else
       @places = Place.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-      @pictures = Picture.all
+      
     end
+    @pictures = Picture.all
   end
   
  
@@ -18,9 +18,9 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @reservation = Reservation.new
-    @picture = Picture.all
     @review = Review.new
     @review = Review.find(params[:id])
+    @pictures = Picture.all
   end
 
   def new

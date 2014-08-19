@@ -1,23 +1,22 @@
 <%= link_to 'Back', places_path %>
 
+<% @place.pictures.each do |picture| %>
+<p><%= image_tag picture.image.url(:medium) %></p>
+<% end %>
   
-
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading center">
-        
-    </div>
+      </div>
     
-      <div class="panel-body">
+    <div class="panel-body">
     <p>Type:<strong><%= @place.kind %> </strong></p>
     <p>Address:<strong><%= @place.address %> </strong></p>
     <p>State:<strong><%= @place.state %> </strong></p>
     <p>Description:<strong><%= @place.description %> </strong></p>
     <p>Price/Night:<strong> <%= @place.price %> </strong></p>
     <p>Availability:<strong> <%= @place.availability %> </strong></p>
-
-    
 
     <% if @place.user == current_user %>
       <%= link_to edit_place_path(@place) do %>
@@ -38,3 +37,4 @@
 
 <%= render 'reviews/form' %>
 <%= render 'places/review' %>
+

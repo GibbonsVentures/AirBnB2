@@ -14,6 +14,9 @@
 
 </p>
 </center>
+<% @pictures.each do |f| %>
+<%= image_tag f.image.url %>
+<% end %>
 
 <div id="places" class="transitions-enabled">
   <% @places.each do |place| %>
@@ -29,7 +32,7 @@
         <p>Availability:<strong><%= place.availability %></strong></p>
         <p>Details:<strong><%= place.description %></strong></p>
 
-        
+        <strong><%= link_to 'Reserve', place_path(place) %></strong>
         
         
       <% if current_user && place.user == current_user %>
