@@ -1,7 +1,11 @@
 class ReviewsController < ApplicationController
 
+	
 
 
+	def show
+		@review = Review.find(params[:id])
+	end
 
 	def create
 		@review = Review.create(reviews_params)

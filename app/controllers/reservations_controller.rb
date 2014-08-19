@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   
-
+  
 	def create
     @reservation = Reservation.new(reservations_params)
     if Reservation.available(@reservation)

@@ -1,4 +1,3 @@
-<h1> Reviews </h1>
 <%= form_for @review, url: reviews_path, method: :post, :html => { :multipart => true } do |f| %>
 <%= f.text_field :place_id, :value => @place.id %>
 
