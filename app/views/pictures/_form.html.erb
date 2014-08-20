@@ -1,0 +1,8 @@
+<%= form_for @picture, url: place_pictures_path(@place), :html => { :multipart => true } do |f| %>
+  <%= f.hidden_field :place_id, :value => @place.id %>
+  <div class="form-group">
+    <%= f.file_field :image %>
+  </div>
+
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

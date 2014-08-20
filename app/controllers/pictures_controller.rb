@@ -15,9 +15,9 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     if @picture.save
       flash[:notice] = "Thanks for adding a new picture!"
-      redirect_to place_path(@picture.place)
+      redirect_to @place, notice: 'Thanks for adding a picture'
     else
-      render new_picture_path
+      render action: 'new'
     end
   end
 

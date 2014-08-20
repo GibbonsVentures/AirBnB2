@@ -12,34 +12,27 @@
   <% end %>
 
   <div class="form-group" >
-    <p><strong> <%= f.label :kind %> </strong></p>
-    <%= f.text_field :kind,  class: "form-control", placeholder: "House, Apartment, or Condo?" %></br>
+    <p><%= f.label :kind %> 
+    <%= f.text_field :kind,  class: "form-control", placeholder: "House, Apartment, or Condo?" %></p>
   
-    <p><strong> <%= f.label :address %> </strong></p>
-    <%= f.text_field :address,  class: "form-control", placeholder: "What street do you live on?" %></br>
+    <p> <%= f.label :address %> 
+    <%= f.text_field :address,  class: "form-control", placeholder: "What street do you live on?" %></p>
   
-    <p><strong> <%= f.label :state %> </strong></p>
-    <%= f.text_field :state,  class: "form-control", placeholder: "State?" %></br>
+    <p> <%= f.label :state %>
+    <%= f.text_field :state,  class: "form-control", placeholder: "State?" %></p>
   
-    <p><strong> <%= f.label :description %> </strong></p>
-    <%= f.text_area :description,  class: "form-group", placeholder: "Give some details about your place" %></br>
+    <p><%= f.label :description %>
+    <%= f.text_field :description,  class: "form-control", placeholder: "Give some details about your place" %></p>
 
-    <p><strong> <%= f.label :availability %> </strong></p>
-    <%= f.text_field :availability,  class: "form-group", placeholder: "When do you want to rent it out?" %></br>
+    <p> <%= f.label :availability %> 
+    <%= f.text_field :availability,  class: "form-control", placeholder: "When do you want to rent it out?" %></p>
  
-    <p> <%= f.label :price %> </p>
-    <%= f.text_field :price,  class: "input-small", placeholder: "What is the nightly rent?" %>
-  </div></br>
+  <p> <%= f.label :price %> 
+    <%= f.text_field :price,  class: "form-control", placeholder: "What is the nightly rent?" %>
+  </p>
   
+</div>
 
- <div class="pictures">
-    <%= f.fields_for :pictures do |f| %>
-        <%= f.file_field :image %>
-      <% end %>
-
-    
- </div>
-</br>
  <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>

@@ -33,8 +33,9 @@
         <p>Details:<strong><%= place.description %></strong></p>
 
         <strong><%= link_to 'Reserve', place_path(place) %></strong>
-        
-        
+
+        </br>
+        </br>
       <% if current_user && place.user == current_user %>
           <div class="actions">
                  <%= link_to edit_place_path(place) do %>

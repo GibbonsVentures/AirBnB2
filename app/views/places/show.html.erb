@@ -1,13 +1,16 @@
 <%= link_to 'Back', places_path %>
-
-<% @place.pictures.each do |picture| %>
-<p><%= image_tag picture.image.url(:medium) %></p>
-<% end %>
-  
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading center">
+  <% if current_user == @place.user %>
+      <%= link_to "Add Pictures", new_place_picture_path(@place), class: "btn btn-primary btn-xs" %>
+      <%= link_to "Edit Details", edit_place_path(@place), class: "btn btn-info btn-xs" %>
+      <%= link_to "Delete Place", @place, class: "btn btn-danger btn-xs", confirm: "Are you sure?", method: "DELETE" %>
+    <% end %>
+  
+
+  
       </div>
     
     <div class="panel-body">
@@ -34,8 +37,10 @@
     </div>
   </div>
 
-</div>  
+  
 
 <%= render 'reviews/form' %>
 <%= render 'places/review' %>
 
+</div>
+</div>

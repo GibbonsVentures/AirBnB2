@@ -18,14 +18,11 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @reservation = Reservation.new
-    @review = Review.new
-    @reviews = Review.find(params[:id])
-    @pictures = Picture.all
+    @review = Review.new    
   end
 
   def new
     @place = current_user.places.build
-    5.times { @place.pictures.build }
   end
 
   def edit
