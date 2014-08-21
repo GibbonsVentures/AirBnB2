@@ -9,7 +9,7 @@
       <%= link_to "Delete Place", @place, class: "btn btn-danger btn-xs", confirm: "Are you sure?", method: "DELETE" %>
     <% end %>
   
-
+    <%= render 'picture' %>
   
       </div>
     
@@ -21,16 +21,6 @@
     <p>Price/Night:<strong> <%= @place.price %> </strong></p>
     <p>Availability:<strong> <%= @place.availability %> </strong></p>
 
-    <% if @place.user == current_user %>
-      <%= link_to edit_place_path(@place) do %>
-        <span class="glyphicon glyphicon-edit"></span>
-        Edit
-     <% end %>
-     <% end %>
-
-    
-    <div class="form-group" >
-     </div>
   
   
 <%= render 'reservations/form' %>

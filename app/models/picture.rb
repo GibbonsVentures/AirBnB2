@@ -4,5 +4,6 @@ class Picture < ActiveRecord::Base
 	has_attached_file :image, :styles => { :medium => "300x300>"}
 
 	validates :image, presence: true
-	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+	validates_attachment_content_type :image, :content_type => /\Aimage/
+	
 end

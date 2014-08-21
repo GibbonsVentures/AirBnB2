@@ -7,6 +7,7 @@ one:
   description: MyText
   availability: MyString
   kind: MyString
+  state: MyString
 
 two:
   user_id: 1
@@ -15,3 +16,4 @@ two:
   description: MyText
   availability: MyString
   kind: MyString
+  state: MyString

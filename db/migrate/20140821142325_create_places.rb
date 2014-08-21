@@ -7,6 +7,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.text :description
       t.string :availability
       t.string :kind
+      t.string :state
 
       t.timestamps
     end

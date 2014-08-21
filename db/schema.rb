@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814231527) do
+ActiveRecord::Schema.define(version: 20140821144643) do
 
   create_table "pictures", force: true do |t|
-    t.integer  "house_id"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "place_id"
   end
 
   create_table "places", force: true do |t|
@@ -31,14 +30,9 @@ ActiveRecord::Schema.define(version: 20140814231527) do
     t.text     "description"
     t.string   "availability"
     t.string   "kind"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "owner_id"
   end
 
   create_table "reservations", force: true do |t|
@@ -51,9 +45,9 @@ ActiveRecord::Schema.define(version: 20140814231527) do
   end
 
   create_table "reviews", force: true do |t|
-    t.integer  "place_id"
     t.integer  "user_id"
-    t.text     "review"
+    t.integer  "place_id"
+    t.string   "experience"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

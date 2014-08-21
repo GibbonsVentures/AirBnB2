@@ -26,7 +26,6 @@ class PicturesController < ApplicationController
   end
 
   def edit
-    @picture = Picture.find(params[:id])
   end
 
   def update
@@ -47,8 +46,19 @@ class PicturesController < ApplicationController
     redirect_to logout_path
   end
 
-private
-  def picture_params
-    params.require(:picture).permit(:image, :place_id)
+ private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_picture
+      @picture = Picture.find(params[:id])
+    end
+    def correct_user
+      @picture = current_user.pictures.find_by(id: params[:id])
+      redirect_to pictures_path, notice: "Not authorized to edit this picture" if @picture.nil?
+    end
+   
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def picture_params
+    params.require(:picture).permit(:image, :description)
   end
 end

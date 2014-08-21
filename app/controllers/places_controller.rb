@@ -39,6 +39,7 @@ class PlacesController < ApplicationController
   end
 
   def update
+    @place = Place.find(params[:id])
     if  @place.update(place_params)
       redirect_to @place, notice: 'Place was successfully updated.'
     else
@@ -64,6 +65,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability, :image)
+      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability)
     end
 end
