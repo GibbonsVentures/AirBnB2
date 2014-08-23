@@ -7,18 +7,18 @@ class PicturesController < ApplicationController
 
   def new
     @place = Place.find(params[:place_id])
-    @picture = Picture.new
+    @picture = current_user.pictures.build
   end
 
   def create
-    @place = Place.find(params[:place_id])
-    @picture = Picture.new(picture_params)
+    @picture = current_user.pictures.build
+    @picture.user_id = current_user.id
     if @picture.save
-      flash[:notice] = "Thanks for adding a new picture!"
-      redirect_to @place, notice: 'Thanks for adding a picture'
+      flash[:notice] = "Thanks for adding picture"
     else
-      render action: 'new'
+      flash[:error] = "You messed it up dumbo"
     end
+    redirect_to root_path
   end
 
   def show
@@ -47,18 +47,15 @@ class PicturesController < ApplicationController
   end
 
  private
-    # Use callbacks to share common setup or constraints between actions.
     def set_picture
       @picture = Picture.find(params[:id])
     end
     def correct_user
       @picture = current_user.pictures.find_by(id: params[:id])
-      redirect_to pictures_path, notice: "Not authorized to edit this picture" if @picture.nil?
+      redirect_to @place, notice: "Not authorized to edit this place" if @picture.nil?
     end
-   
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-    params.require(:picture).permit(:image, :description)
+    params.require(:picture).permit(:image, :description, :place_id, :user_id)
   end
 end

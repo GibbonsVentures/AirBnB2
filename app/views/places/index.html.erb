@@ -14,11 +14,8 @@
 
 </p>
 </center>
-<% @pictures.each do |f| %>
-<%= image_tag f.image.url %>
-<% end %>
-
 <div id="places" class="transitions-enabled">
+  
   <% @places.each do |place| %>
     <div class="box panel panel-default">
       <p class="content">     

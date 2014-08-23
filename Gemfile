@@ -3,7 +3,8 @@ ruby '2.0.0'
 
 
 gem 'jquery-fileupload-rails'
-gem 'paperclip', '~> 4.2.0'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'cocaine', '~> 0.5.4'
 gem 'will_paginate-bootstrap'
 gem 'will_paginate', '~> 3.0.7'
 gem 'devise', '~> 3.2.4'

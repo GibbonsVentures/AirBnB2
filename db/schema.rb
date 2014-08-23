@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821144643) do
+ActiveRecord::Schema.define(version: 20140823204506) do
 
   create_table "pictures", force: true do |t|
     t.string   "description"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140821144643) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "place_id"
+    t.integer  "user_id"
   end
 
   create_table "places", force: true do |t|
@@ -34,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140821144643) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "places", ["user_id"], name: "index_places_on_user_id"
 
   create_table "reservations", force: true do |t|
     t.date     "check_in"

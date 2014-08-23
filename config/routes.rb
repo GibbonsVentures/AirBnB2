@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 	
-	resources :places do
-		resources :pictures
-	end
+	resources :places
+	resources :pictures, only: [:create]
+
 
 	resources :reservations, only: [:create]
 	resources :reviews, only: [:create]

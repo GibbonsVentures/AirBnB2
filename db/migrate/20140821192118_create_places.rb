@@ -11,5 +11,6 @@ class CreatePlaces < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :places, :user_id
   end
 end
