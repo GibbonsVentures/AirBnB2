@@ -82,7 +82,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { host: 'http://shielded-plains-6555.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'http://shielded-plains-6555.herokuapp.com' }
 
 
   config.paperclip_defaults = {
