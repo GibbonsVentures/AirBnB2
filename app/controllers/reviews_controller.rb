@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+	before_filter :authenticate_user!
 
 	
 
@@ -19,6 +20,7 @@ class ReviewsController < ApplicationController
 	end
 
 	private
+   
 
 	def reviews_params
 		params.require(:review).permit(:place_id, :user_id, :experience)

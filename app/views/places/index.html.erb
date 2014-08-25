@@ -33,7 +33,8 @@
 
         </br>
         </br>
-      <% if current_user && place.user == current_user %>
+      <% if place.user == current_user %>
+      
           <div class="actions">
                  <%= link_to edit_place_path(place) do %>
               <span class="glyphicon glyphicon-edit"></span>

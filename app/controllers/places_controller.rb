@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
 
@@ -20,7 +21,6 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @reservation = Reservation.new
     @review = Review.new
-    @picture = Picture.new    
   end
 
   def new
@@ -58,18 +58,13 @@ class PlacesController < ApplicationController
 
 
 private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_place
-      @place = Place.find(params[:id])
-    end
     def correct_user
       @place = current_user.places.find_by(id: params[:id])
-      redirect_to places_path, notice: "Not authorized to edit this place" if @place.nil?
+      redirect_to places_path, notice: "Not authorized to edit this picture" if @place.nil?
     end
-   
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+    
+    
     def place_params
-      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability)
+      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability, :user_id)
     end
 end

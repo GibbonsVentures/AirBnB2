@@ -7,18 +7,18 @@ class PicturesController < ApplicationController
 
   def new
     @place = Place.find(params[:place_id])
-    @picture = current_user.pictures.build
+    @picture = Picture.new
   end
 
   def create
-    @picture = current_user.pictures.build
-    @picture.user_id = current_user.id
-    if @picture.save
-      flash[:notice] = "Thanks for adding picture"
+    @place = Place.find(params[:place_id])
+    @picture = Picture.new(picture_params)
+     if @picture.save
+      flash[:notice] = "Thanks for adding a new picture!"
+      redirect_to place_path(@picture.place)
     else
-      flash[:error] = "You messed it up dumbo"
+      render new_picture_path
     end
-    redirect_to root_path
   end
 
   def show
@@ -47,15 +47,10 @@ class PicturesController < ApplicationController
   end
 
  private
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
-    def correct_user
-      @picture = current_user.pictures.find_by(id: params[:id])
-      redirect_to @place, notice: "Not authorized to edit this place" if @picture.nil?
-    end
 
-    def picture_params
-    params.require(:picture).permit(:image, :description, :place_id, :user_id)
+    
+
+  def picture_params
+    params.require(:picture).permit(:image, :description)
   end
 end

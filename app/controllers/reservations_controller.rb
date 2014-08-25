@@ -1,8 +1,10 @@
 class ReservationsController < ApplicationController
+  before_filter :authenticate_user!
   
   
 	def create
-    @reservation = Reservation.new(reservations_params)
+    @reservation = Reservation.create(reservation_params)
+    @reservation.user_id = current_user.id
     if Reservation.available(@reservation)
       @reservation.save
       redirect_to place_path(@reservation.place), notice: 'You reserved this place!'
@@ -12,6 +14,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to places_url
   end
@@ -20,8 +23,9 @@ class ReservationsController < ApplicationController
   
 
 private
+    
 
-  def reservations_params
+  def reservation_params
     params.require(:reservation).permit(:check_in, :check_out, :place_id, :user_id)
   end
 end

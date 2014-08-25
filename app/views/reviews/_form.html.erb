@@ -1,13 +1,14 @@
 <%= form_for @review, url: reviews_path, method: :post, :html => { :multipart => true } do |f| %>
-<%= f.hidden_field :place_id, :value => @place.id %>
+ <%= f.hidden_field :place_id, :value => @place.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 
 <div class="form-group" >
     <p><strong> <%= f.label :experience %> </strong></p>
     <%= f.text_field :experience,  class: "form-control", placeholder: "Tell us about your experience" %>
 
-<div class="form-group">
+<p><div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
-  </div>
+  </div></p>
 
 <% end %>
 </div>

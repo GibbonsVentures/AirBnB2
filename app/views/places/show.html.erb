@@ -3,35 +3,35 @@
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading center">
-  <% if current_user == @place.user %>
-      <%= render 'pictures/form' %>
-      
-      <%= link_to "Edit Details", edit_place_path(@place), class: "btn btn-info btn-xs" %>
-      <%= link_to "Delete Place", @place, class: "btn btn-danger btn-xs", confirm: "Are you sure?", method: "DELETE" %>
-    <% end %>
+        <% if current_user == @place.user %>
+          <%= link_to "Add Pictures", new_place_picture_path(@place), class: "btn btn-primary btn-xs" %>
+          <%= link_to "Edit Details", edit_place_path(@place), class: "btn btn-info btn-xs" %>
+          <%= link_to "Delete Place", @place, class: "btn btn-danger btn-xs", confirm: "Are you sure?", method: "DELETE" %>
+        <% end %>
   
-    <%= render 'places/picture' %>
+    
   
       </div>
     
     <div class="panel-body">
-    <p>Type:<strong><%= @place.kind %> </strong></p>
-    <p>Address:<strong><%= @place.address %> </strong></p>
-    <p>State:<strong><%= @place.state %> </strong></p>
-    <p>Description:<strong><%= @place.description %> </strong></p>
-    <p>Price/Night:<strong> <%= @place.price %> </strong></p>
-    <p>Availability:<strong> <%= @place.availability %> </strong></p>
+      <p>Type:<strong><%= @place.kind %> </strong></p>
+      <p>Address:<strong><%= @place.address %> </strong></p>
+      <p>State:<strong><%= @place.state %> </strong></p>
+      <p>Description:<strong><%= @place.description %> </strong></p>
+      <p>Price/Night:<strong> <%= @place.price %> </strong></p>
+      <p>Availability:<strong> <%= @place.availability %> </strong></p>
 
   
   
-<%= render 'reservations/form' %>
+      <%= render 'reservations/form' %>
     </div>
+   
   </div>
 
   
 
-<%= render 'reviews/form' %>
-<%= render 'places/review' %>
+    <%= render 'reviews/form' %>
+    <%= render 'places/review' %>
 
 </div>
 </div>
