@@ -9,8 +9,7 @@
           <%= link_to "Delete Place", @place, class: "btn btn-danger btn-xs", confirm: "Are you sure?", method: "DELETE" %>
         <% end %>
   
-    
-  
+        <%= render 'place' %>  
       </div>
     
     <div class="panel-body">
@@ -20,15 +19,11 @@
       <p>Description:<strong><%= @place.description %> </strong></p>
       <p>Price/Night:<strong> <%= @place.price %> </strong></p>
       <p>Availability:<strong> <%= @place.availability %> </strong></p>
-
-  
-  
+      
       <%= render 'reservations/form' %>
     </div>
    
   </div>
-
-  
 
     <%= render 'reviews/form' %>
     <%= render 'places/review' %>

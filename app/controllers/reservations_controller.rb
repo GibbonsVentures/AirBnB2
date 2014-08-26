@@ -2,9 +2,8 @@ class ReservationsController < ApplicationController
   before_filter :authenticate_user!
   
   
-	def create
-    @reservation = Reservation.create(reservation_params)
-    @reservation.user_id = current_user.id
+  def create
+    @reservation = Reservation.new(reservation_params)
     if Reservation.available(@reservation)
       @reservation.save
       redirect_to place_path(@reservation.place), notice: 'You reserved this place!'

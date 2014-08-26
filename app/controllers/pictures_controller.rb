@@ -17,7 +17,7 @@ class PicturesController < ApplicationController
       flash[:notice] = "Thanks for adding a new picture!"
       redirect_to place_path(@picture.place)
     else
-      render new_picture_path
+      redirect_to new_place_picture_path(@place)
     end
   end
 
@@ -51,6 +51,6 @@ class PicturesController < ApplicationController
     
 
   def picture_params
-    params.require(:picture).permit(:image, :description)
+    params.require(:picture).permit(:image, :description, :place_id)
   end
 end

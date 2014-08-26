@@ -1,52 +1,45 @@
 <%= render 'pages/home' unless user_signed_in? %>
-<center><p>
-  
+
+<center>
   <h4>Search by State</h4>
-  <%= form_tag(places_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search by State" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-
-</p>
-</br> 
-<p>
-<%= link_to new_place_path do %> <span class="glyphicon glyphicon-plus"></span> Add a Place <% end %>
-
-</p>
+    <%= form_tag(places_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search by State" %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+  </br>
+    <%= link_to new_place_path do %> 
+      <span class="glyphicon glyphicon-plus"></span> Add Your Place
+    <% end %>
 </center>
+
 <div id="places" class="transitions-enabled">
-  
   <% @places.each do |place| %>
     <div class="box panel panel-default">
-      <p class="content">     
-    
-      
-      <div class="panel-body">
-        <p>Type:<strong><%= place.kind %></strong></p>
-        <p>Location:<strong><%= place.address %></strong></p>
-        <p>State:<strong><%= place.state %></strong></p>
-        <p>Price:<strong><%= place.price %></strong></p>
-        <p>Availability:<strong><%= place.availability %></strong></p>
-        <p>Details:<strong><%= place.description %></strong></p>
+      <p class="content">
+        <div class="panel-body">
+          <p>Type:<strong><%= place.kind %></strong></p>
+          <p>Location:<strong><%= place.address %></strong></p>
+          <p>State:<strong><%= place.state %></strong></p>
+          <p>Price:<strong><%= place.price %></strong></p>
+          <p>Availability:<strong><%= place.availability %></strong></p>
+          <p>Details:<strong><%= place.description %></strong></p>
 
-        <strong><%= link_to 'Reserve', place_path(place) %></strong>
-
+          <strong><%= link_to 'Reserve', place_path(place) %></strong>
         </br>
         </br>
-      <% if place.user == current_user %>
-      
-          <div class="actions">
-                 <%= link_to edit_place_path(place) do %>
-              <span class="glyphicon glyphicon-edit"></span>
-              Edit
-            <% end %>
-            <%= link_to place, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <span class="glyphicon glyphicon-trash"></span>
-              Delete
-            <% end %>
-            
-          </div>
-        <% end %>
+
+          <% if place.user == current_user %>
+            <div class="actions">
+              <%= link_to edit_place_path(place) do %>
+                <span class="glyphicon glyphicon-edit">Edit</span>
+              <% end %>
+              
+              <%= link_to place, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash">Delete</span>
+              <% end %>
+            </div>
+          <% end %>
+
       </div>
     </div>
   <% end %>
