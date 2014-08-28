@@ -9,8 +9,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		@review = Review.create(reviews_params)
-		@review.user_id = current_user.id
+		@review = Review.new(reviews_params)
 		if @review.save
 			flash[:notice] = "Thanks for the review"
 		else

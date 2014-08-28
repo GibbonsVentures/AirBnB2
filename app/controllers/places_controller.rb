@@ -21,7 +21,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @reservation = Reservation.new
     @review = Review.new
-    @picture = Picture.new
+    
   end
 
   def new

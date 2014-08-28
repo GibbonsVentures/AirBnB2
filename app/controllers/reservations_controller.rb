@@ -4,8 +4,7 @@ class ReservationsController < ApplicationController
   
   def create
     @reservation = Reservation.new(reservation_params)
-    if Reservation.available(@reservation)
-      @reservation.save
+    if  @reservation.save
       redirect_to place_path(@reservation.place), notice: 'You reserved this place!'
     else
       redirect_to :back, notice: "This room is not avaiable for those dates!"

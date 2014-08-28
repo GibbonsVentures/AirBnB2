@@ -11,10 +11,19 @@
       <span class="glyphicon glyphicon-plus"></span> Add Your Place
     <% end %>
 </center>
+<% if @pictures.any?  %>
+  <div class="changepic">
+    <% @pictures.each do |picture| %>
+      <%= link_to image_tag picture.image.url(:medium) %>
+
+    <% end %>
+  </div>
+<% end %>
 
 <div id="places" class="transitions-enabled">
   <% @places.each do |place| %>
     <div class="box panel panel-default">
+
       <p class="content">
         <div class="panel-body">
           <p>Type:<strong><%= place.kind %></strong></p>
