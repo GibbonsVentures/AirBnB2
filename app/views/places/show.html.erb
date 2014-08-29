@@ -7,6 +7,7 @@
           <%= link_to "Add Pictures", new_place_picture_path(@place), class: "btn btn-primary btn-xs" %>
           <%= link_to "Edit Details", edit_place_path(@place), class: "btn btn-info btn-xs" %>
           <%= link_to "Delete Place", @place, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+          
         <% end %>
   
         <%= render 'place' %>  
