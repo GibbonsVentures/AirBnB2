@@ -12,7 +12,7 @@ class PicturesController < ApplicationController
 
   def create
     @place = Place.find(params[:place_id])
-    @picture = Picture.new(picture_params)
+    @picture = Picture.create(picture_params)
      if @picture.save
       flash[:notice] = "Thanks for adding a new picture!"
       redirect_to place_path(@picture.place)
