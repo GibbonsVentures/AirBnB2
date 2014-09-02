@@ -5,6 +5,7 @@ $navbar-default-bg:                          		white;
 $navbar-default-brand-color:      					#0066ff;
 $brand-primary:                                    #77c05d;
 $jumbotron-bg:                                         white;
+@import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 .center {
