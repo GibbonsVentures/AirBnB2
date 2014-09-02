@@ -5,4 +5,4 @@ $ ->
   $(".changepic img:gt(0)").hide()
   setInterval (->
     $(".changepic :first-child").fadeOut().next("img").fadeIn().end().appendTo ".changepic"
-  ), 5000
+  ), 1000
