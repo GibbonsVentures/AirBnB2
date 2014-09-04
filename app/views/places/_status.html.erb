@@ -1,0 +1,13 @@
+  <h4>My reservations</h4>
+     
+  <% @place.reservations.each do |reservation| %>
+   <div class="row">
+          <ul>Nightly Price: <%= reservation.place.price %></ul>
+          <ul>Check In: <%= reservation.check_in %></ul>
+          <ul>Check Out: <%= reservation.check_out %></ul>
+    </div>
+<% end %>
+  
+
+
+ 

@@ -4,9 +4,6 @@ class Place < ActiveRecord::Base
 	has_many :reviews
 
 	has_many :pictures, :dependent => :destroy
-	
-	
-	
 
 	
 
@@ -15,3 +12,6 @@ class Place < ActiveRecord::Base
 	end
 	
 end
+
+
+

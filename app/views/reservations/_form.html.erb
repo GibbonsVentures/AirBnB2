@@ -9,5 +9,7 @@
   <div class='form-group'>
     <strong>Check out:<%= f.date_field('check_out', default: 3.days.from_now ) %></strong>
   </div>
+  <div>
   <%= f.submit(:class => "btn btn-primary") %>
+</div>
 <% end %>
