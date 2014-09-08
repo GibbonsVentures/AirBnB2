@@ -1,18 +1,10 @@
 class Reservation < ActiveRecord::Base
 	belongs_to :place
 	belongs_to :user
+  	after_create :send_reservation_confirmation
 
-	def reject!
-    update_attributes({"status" => "rejected"})
+
+	def send_reservation_confirmation
+    ReservationMailer.reservation_confirmation(self).deliver
   end
-
-  def accept!
-    update_attributes({'status'=> 'accepted'})
-  end
-
-  def pending?
-    status == "pending"
-  end
-
-
 end
