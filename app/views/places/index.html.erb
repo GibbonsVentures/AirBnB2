@@ -26,13 +26,14 @@
           <p>Price:<strong><%= place.price %></strong></p>
           <p>Availability:<strong><%= place.availability %></strong></p>
           <p>Details:<strong><%= place.description %></strong></p>
+          
 
 
           <strong><%= link_to 'Reserve', place_path(place) %></strong>
         </br>
         </br>
 
-          <% if place.user == current_user %>
+          <% if place.owner == current_user %>
             <div class="actions">
               <%= link_to edit_place_path(place) do %>
                 <span class="glyphicon glyphicon-edit">Edit</span>

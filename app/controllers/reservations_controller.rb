@@ -1,14 +1,11 @@
 class ReservationsController < ApplicationController
   before_filter :authenticate_user!
   
-  def index
-    @reservations = Reservation.all
-  end
-
+  
   
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.create(guest: current_user, place: Place.find(params[:place_id]))
     if @reservation.save
       redirect_to place_path(@reservation.place), notice: 'You reserved this place!'
     else
@@ -36,6 +33,6 @@ private
   end
 
   def reservation_params
-    params.require(:reservation).permit(:check_in, :check_out, :place_id, :user_id)
+    params.require(:reservation).permit(:check_in, :check_out, :place_id, :guest_id)
   end
 end

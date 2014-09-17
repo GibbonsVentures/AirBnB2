@@ -3,7 +3,7 @@ ruby '2.0.0'
 
 
 gem 'jquery-fileupload-rails'
-gem "paperclip", '~> 3.0'
+
 gem 'cocaine', '~> 0.5.4'
 gem 'will_paginate-bootstrap'
 gem 'will_paginate', '~> 3.0.7'
@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'aws-sdk', '~> 1.51.0'
+gem 'paperclip', '~> 3.0'
 
 
 

@@ -21,7 +21,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @reservation = Reservation.new
     @review = Review.new
-    
+    #storing as intance variable. to be used on 
   end
 
   def new
@@ -66,6 +66,6 @@ private
     
     
     def place_params
-      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability)
+      params.require(:place).permit(:kind, :address, :state, :price, :description, :availability, :owner_id)
     end
 end
